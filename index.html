@@ -9,12 +9,11 @@
 <script type="text/javascript">
     $(function () {
         var params = {
-            "url": "http://cfile21.uf.tistory.com/image/226B71385742AA7B20B62A"
+            //"url": "http://cfile21.uf.tistory.com/image/226B71385742AA7B20B62A"
         };
 
         $.ajax({
-//            url: "https://api.projectoxford.ai/emotion/v1.0/recognize?" + $.param(params),
-            url: "http://cfile21.uf.tistory.com/image/226B71385742AA7B20B62A",
+            url: "https://api.projectoxford.ai/emotion/v1.0/recognize?" + $.param(params),
             beforeSend: function (xhrObj) {
                 // Request headers
                 xhrObj.setRequestHeader("Content-Type", "application/json");
