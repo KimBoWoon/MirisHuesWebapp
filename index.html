@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <title>Emotion API DEMO</title>
+
+    <!-- bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+</head>
+<body style="background-color: #add8e6;">
+<div class="container">
+    <div class="col-xs-12 col-md-12">
+        <div style="
+            font-weight: bold; font-size:6.5em; font-family: '10X10 Bold'; text-align: center; color: #FA8072;
+            background-image: url(sponsor.png);
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-position: 800px 140px;
+            height: 200px;
+            width: 100%;"> Emotion API App
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <div class="col-xs-12 col-md-12">
+        <div class="filebox">
+            <form enctype="multipart/form-data" action="" id="form" method="POST">
+                <!-- 서버로 전송해줄 것이기 때문에 form tag 사용 -->
+                <input type="hidden" name="MAX_FILE_SIZE" value="30000000">
+                <input type="file" id="input" name="userfile">
+                <label for="input">사진 선택</label>
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12">
+        <p id="tags"></p>
+    </div>
+
+    <div class="col-xs-12 col-md-12">
+        <div class="canvas">
+            <canvas style="alignment: center;" id="myCanvas" width="1000" height="800"></canvas>
+            <!--   <canvas> 태그로 출력 영역을 지정하며 자바스크립트의 그리기 메서드를 호출하여 캔버스 영역에 원하는 그림을 그린다.
+                   API를 이용하려면 서버에 보내는 사진의 크기와 웹에 띄워야 할 사진의 크기가 정확히 일치해야 한다.
+                   그러므로 Canvas 크기와 아래 drawImage 부분에 사이즈를 적절히 지정해 주자. -->
+        </div>
+    </div>
+
+    <script src="ImageTools.js"></script>
+    <!-- image resize를 위한 js파일 -->
+
+    <script>
+        var canvas = document.getElementById('myCanvas');
+        //canvas라는 변수를 만들어서 "mycanvas" id를 가진 태그(canvas)의 값을 가져온다.
+        var ctx = canvas.getContext('2d');
+        var upload = document.getElementById('input');
+        //upload 변수에 input아이디를 가진 인풋 태그의 값을 가져온다.
+        var img = new Image();
+        //img 변수에 image객체를 정의한다.
+        var filename = null;
+        // filename 변수에 null값을 넣어준다. null = 객체 값이 존재하지 않음
+        var fullPathName = "AZURE_WEB_APP_URL";
+        // fulPathName 변수에 현재 만든 Web App의 url을 넣어준다. 나중에 업로드한 파일을 불러올때 필요하다.
+        var form = document.getElementById('form');
+        // form 변수에 form 태그의 값을 가져온다.
+
+        var emotion = {
+            0: "anger",
+            1: "contempt",
+            2: "disgust",
+            3: "fear",
+            4: "happiness",
+            5: "neutral",
+            6: "sadness",
+            7: "surprise"
+        };
+        // emotion이라는 배열을 만들어서 감정을 넣어준다.
+
+        var imgPath;
+        var imgBlob;
+
+        var emotionImage = new Array(8);
+        //길이가 8인 배열을 만든다
+
+        for (i = 0; i < emotionImage.length; i++) {
+            emotionImage[i] = new Image();
+            emotionImage[i].src = fullPathName + emotion[i] + ".png";
+        }
+        /* i값이 emotionImage 배열의 길이만큼까지 증가하면서 emotionImage 배열에 하나씩 새로운 이미지 객체를 정의해준다. 또 이미지 객체에 fullPathName과 숫자(key)에 맞는 감정(value)값 그리고 사진파일 형식을 붙혀서 넣어준다.
+         web app에 미리 넣어둔 이모티콘의 이미지 url을 여기서 지정해 준것이다.
+         ex)https://976e148f-0ee0-4-231-b9ee.azurewebsites.net/anger.png
+         */
+
+
+        form.onchange = function (e) {
+            if (img.src.length > 10)
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ImageTools.resize(e.target.files[0], {
+                width: 800,
+                height: 600
+            }, function (blob, didItResize) {
+                imgBlob = blob;
+                img.src = URL.createObjectURL(imgBlob);
+            })
+        };
+        //form tag에 onchange 이벤트(객체안의 내용이 바뀌고)가 발생했을 때 img객체에 url을 지정해 준다. e == event 자바스크립트 전역객체
+        /* Blob는 Binary Large Objects의 약자로 “대용량 바이너리 객체”쯤으로 해석할 수 있다. 이름 그대로 이미지, 동영상 등 단순 텍스트 데이터가 아닌 바이너리 데이터를 담을 수 있는 객체이다. HTML5에 들어서면서 자바스크립트에서도 이러한 파일을 다루어야 할 필요성이 생겨 File API 명세에 정의되었다.*/
+
+
+        // 여기서부터 img가 로드되었을 때 실행되는 콜백함수
+        img.onload = function () {
+            $(document).ready(function () {
+                $('.canvas').width(img.width);
+                $('.canvas').height(img.height);
+            });
+
+            ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, img.width, img.height);
+            // drawimage 함수를 사용하여 좌표 0.0부터 이미지 너비 높이를 지정하고 캔버스의 너비도 이미지와 같은 너비와 높이로 지정해준다.
+
+
+            //jquery(javascript 라이브러리 코드를 간편화 시켜줌) / 익명함수 'function() { };'를 실행하라로 해석
+            $(function () {
+
+                var form = $('form')[0];
+                // form이란 변수에 form tag값을 가져옴(객체로?) == document.getElementByTagName('form')
+                var fullPath = upload.value;
+                /* fullpath 변수에 가짜 주소를 넣어준다. 웹에서는 로컬경로가 필요없어서 저렇게 나온다.
+                 ex) C:\fakepath\uploadimage.JPG */
+                if (fullPath) {
+                    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+                    /* 조건부 삼항 비교연산자 a ? b : c  a가 true면 b false면 c
+                     indexOf() 인자가 몇번째인지, lastIndexOf() 인자가 있는곳에서 뒤에서 맨처음까지 수 */
+                    filename = fullPath.substring(startIndex);
+                    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0)
+                        filename = filename.substring(1);
+                }// 가짜 주소부분에서 이미지의 이름만 가져온다. ex)uploadimage.JPG
+
+                imgPath = fullPathName;
+                imgPath += filename;
+                /* imgPath에 fullPathName과 filename의 값을 더해준다.
+                 ex) https://976e148f-0ee0-4-231-b9ee.azurewebsites.net/uploadimage.JPG */
+
+                var formData = new FormData(form);
+                formData.append("userfile", imgBlob, filename);
+                // var formData = new FormData(); formdata 변수에 form객체를 담아준다.
+                // 왜 formData = new FormData(); 빈 폼에서는 안 되는 걸까?
+                // -> 빈 폼은 enctype이 설정돼있지 않기 때문.
+                $.ajax({
+                    url: './upload.php',
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    type: 'POST'
+                })
+
+                //Emotion API
+                    .done(function () {
+                        $.ajax({
+                            url: "https://api.projectoxford.ai/emotion/v1.0/recognize?",
+                            beforeSend: function (xhrObj) {
+                                xhrObj.setRequestHeader("Content-Type", "application/json");
+                                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "EMOTION_API_KEY");
+                            }, //Emotion API key값 넣음
+                            type: "POST",
+                            data: "{" +
+                            "\"url\":\"" + imgPath + "\"}"
+                        })
+                        // ex) { "url":"https://976e148f-0ee0-4-231-b9ee.azurewebsites.net/uploadimage.JPG" }
+
+                        //실습영역
+
+                            .done(function (response) {
+                                /* 일단 AJAX 요청이 성공하면 response라는 인자를 가진 콜백함수 .done 함수(callback)를 실행하게 해야 합니다. 
+                                 이 친구는 Emotion API의 서버로부터 받아온 결과값을 포함하고 있는 친구입니다. API 서버는 JSON타입으로 데이터를 반환시키기 때문에
+                                 response의 값은 얼굴 좌표와 감정을 인식한 결과들을 담고 있을 겁니다 */
+                                for (i = 0; i < response.length; i++) {
+                                    /* for문을 사용하여 여러개의 얼굴값을 받아 올수 있도록 합니다. 얼굴 개수는 response.length로 알 수 있습니다 */
+
+                                    var emotionArray = Object.keys(response[i]['scores']).map(function (key) {
+                                        /* 감정값들의 크기를 비교하고 제일 큰 값을 뽑아내 위해 JSON 타입으로 들어있는 감정 값들을 가져와서 실수형 배열로 만들어 줘야 합니다.
+                                         emotionArray에 JSON 타입으로 저장되어 있는 값들을 배열에 할당합니다.
+                                         Object.keys().map() 함수를 사용합니다. 자바스크립트에서 모든 객체는 Object라는 전역객체에서부터 비롯되기 때문에 당연히 어떤 객체에서든
+                                         key.map()함수를 사용할 수 있습니다.
+                                         1. 해당 객체에서 key가 되는 부분을 뽑아옵니다. ex) response[i]['scores'] 하면 감정값 8개의 key-value pair(happiness: 0.01 등)를 불러옵니다.
+                                         2. keys에서 뽑아온 key를 인자로 받아 response[i]['scores'][key]의 값을 가져온 다음, 그걸 실수로 변환해서 배열에 할당(mapping, 그래서 함수 이름이 map)하는 작업을 수행합니다.
+                                         ex) key: happiness 라면, response[i]['scores'][key] = 특정 값(0.01)이 나올 거임. 그러면 이걸 배열로 만들어서 저장해주는 것. 이건 자동으로 key-value pair의 갯수만큼 실행이 되기 때문에 이 함수를 거치면 emotionArray는 8개의 실수값(감정 인식 값)을 가진 배열이 됨
+                                         */
+                                        return parseFloat(response[i]['scores'][key]);
+                                        //parseFloat()을 사용해서 “”string type으로 배열에 저장되어있는 값들을 number type으로 바꿔준다.
+                                    });
+
+
+                                    var maxEmotion = emotionArray.reduce((iMax, x, i, emotionArray) = > x > emotionArray[iMax] ? i : iMax, 0
+                                )
+                                    ;
+                                    /*
+                                     iMax : 현재까지 reduce 함수를 적용한 결과로 얻은 가장 큰 값의 인덱스(가장 최대인 감정값)
+                                     x : 지금 reduce 함수에 적용할 감정값
+                                     i : x의 인덱스 번호
+                                     emotionArray : reduce에 넘겨줄 실제 배열
+
+                                     이 4가지를 가지고 다음과 같은 삼항 연산자를 실행하게 됩니다.
+                                     삼항 연산자 영역은 "x > emotionArray[iMax] ? i : iMax" 까지"
+                                     , 0 은 reduce에 들어가는 인자인데 배열의 몇 번째 원소부터 시작할 건지를 정해줍니다
+                                     (우리는 0이니까 처음부터 끝까지 다 돌겠다는 뜻)
+                                     x(현재 테스트하고 있는 값) > 우리 배열[지금까지 가장 큰걸로 보이는 인덱스]
+                                     true : 새롭게 등장한 큰 놈의 인덱스를 반환(i)
+                                     false : 아직 iMax가 가장 크니까 계속 그거 씀
+                                     */
+
+                                    var top = response[i]['faceRectangle'].top;
+                                    var left = response[i]['faceRectangle'].left;
+                                    var width = response[i]['faceRectangle'].width;
+                                    var height = response[i]['faceRectangle'].height;
+                                    /*
+                                     response[i]['faceRectangle'] 에는 다음 4가지 값이 있습니다.
+                                     top, left, width, height
+                                     ex) 물론 key-value pair로 top: 10, left :20, width : 100, height : 40 이런식으로 있습니다.
+                                     10이란 값을 가져오고 싶으면 top이라는 key로 접근하면 됩니다.
+                                     */
+                                    //top, left(x, y)의 위치에 width, height 만큼 top, left(x, y)의 위치에서부터 width, height만큼 영역을 지정해 줍니다.
+
+                                    ctx.drawImage(emotionImage[maxEmotion], 0, 0, emotionImage[maxEmotion].width, emotionImage[maxEmotion].height, left - 5, top - 10, width, height);
+                                    /*
+                                     4가지 좌표값을 획득한후에는 canvas에 drawImage (저거는 감정인식 이미지 그려내는 부분이죠)를 할겁니다.
+                                     앞의 5개인자는 그릴 image, canvas x 좌표, canvas y 좌표, canvas width, canvas height 입니다.
+                                     emotionImage에 위에서 0~7까지 인덱스로 이미지 미리 저장해놨었습니다.
+                                     이미 가장 큰 감정값의 인덱스를 아니까 그대로 불러오면 됩니다.
+                                     처음에 canvas의 x, y, width, height를 지정하는 이유는 캔버스의 어떤 영역에 그릴것인가를 정해줘야하기 때문입니다.
+                                     0,0 으로 주면 canvas 시작부터 이미지 width, height 까지 그릴 "영역"이 됩니다. 그러면 지정된 영역에서 어떤 위치에 그려줄 것 이냐는
+                                     뒤에 4가지 인자가 결정합니다. 뒤에 4개는 실 left, top 순으로 준 이유는 left, top부분의 좌표가 x, y이기 때문입니다.
+                                     이 부분은 이미지가 그려지는 부분이기에 얼굴인식 결과 좌표랑 똑같습니다.
+                                     위치보정을 위해 left, top 에서 숫자 조금씩 빼주었습니다.
+                                     */
+
+
+                                    ctx.beginPath();
+                                    ctx.lineWidth = "6";
+                                    ctx.strokeStyle = "red";
+                                    ctx.rect(left, top, width, height);
+                                    ctx.stroke();
+                                    /*
+                                     ctx.beginPath() 부터 ctx.stroke()는 빨간사각형 그리는거
+                                     beginPath() : canvas에 나 그림 그릴 것 이라고(이미지 출력 말고) 알려줌
+                                     lineWidth = 6 : 두께 설정
+                                     strokestyle = "red" : 선 색 설정
+                                     rect(left, top, width, height) : 주어진 4개 좌표로 사각형 그림
+                                     stroke() : 위에 설정된 정보들로 실제로 그림을 그려줌
+                                     */
+
+                                }
+                            })
+                            //여기까지 실습영역
+                            .fail(function (response) {
+                                alert(JSON.stringify(response));
+                            });
+                    });
+            });
+        };
+    </script>
+</div>
+</body>
+</html>
