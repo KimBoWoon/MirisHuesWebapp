@@ -72,7 +72,7 @@
         //img 변수에 image객체를 정의한다.
         var filename = null;
         // filename 변수에 null값을 넣어준다. null = 객체 값이 존재하지 않음
-        var fullPathName = "AZURE_WEB_APP_URL";
+        var fullPathName = "http://bowoon.azurewebsites.net/";
         // fulPathName 변수에 현재 만든 Web App의 url을 넣어준다. 나중에 업로드한 파일을 불러올때 필요하다.
         var form = document.getElementById('form');
         // form 변수에 form 태그의 값을 가져온다.
@@ -172,7 +172,7 @@
                             url: "https://api.projectoxford.ai/emotion/v1.0/recognize?",
                             beforeSend: function (xhrObj) {
                                 xhrObj.setRequestHeader("Content-Type", "application/json");
-                                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "EMOTION_API_KEY");
+                                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "b9d5f8ef58c240eb8e9177c49b51fdd4");
                             }, //Emotion API key값 넣음
                             type: "POST",
                             data: "{" +
