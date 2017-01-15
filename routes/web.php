@@ -73,3 +73,6 @@ Route::get('/b', function () {
 Route::get('/c', function () {
     echo 'Hello, World!';
 });
+
+Route::get('/uploadfile', 'UploadFileController@index');
+Route::post('/uploadfile', 'UploadFileController@showUploadFile');
