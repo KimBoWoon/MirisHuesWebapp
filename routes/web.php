@@ -17,8 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/a', function ()
-{
+Route::get('/a', function () {
     $request = new Http_Request2('https://api.projectoxford.ai/vision/v1.0/ocr');
     $url = $request->getUrl();
     $headers = array(
@@ -46,8 +45,7 @@ Route::get('/a', function ()
     }
 });
 
-Route::get('/b', function ()
-{
+Route::get('/b', function () {
     $request = new Http_Request2('https://api.projectoxford.ai/vision/v1.0/tag');
     $url = $request->getUrl();
     $headers = array(
