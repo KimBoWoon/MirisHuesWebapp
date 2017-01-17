@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/a', 'CognitiveAPI@showText');
-
-Route::get('/b', 'CognitiveAPI@showTag');
+Route::get('/info', 'Cognitive\CognitiveAPI@index');
+Route::get('/text', 'Cognitive\CognitiveAPI@showText');
+Route::get('/tag', 'Cognitive\CognitiveAPI@showTag');
 
 Route::get('/c', function () {
     echo 'Hello, World!';

@@ -6,7 +6,9 @@
  * Time: 오후 7:18
  */
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Cognitive;
+
+use App\Http\Controllers\Controller;
 
 require_once 'HTTP/Request2.php';
 
@@ -14,12 +16,12 @@ class CognitiveAPI extends Controller
 {
     public function index()
     {
-        return view('/file/cognitive');
+        return view('cognitive/cognitive');
     }
 
-    public function showText(Request $request)
+    public function showText()
     {
-        $request = new Http_Request2('https://api.projectoxford.ai/vision/v1.0/ocr');
+        $request = new \Http_Request2('https://api.projectoxford.ai/vision/v1.0/ocr');
         $url = $request->getUrl();
         $headers = array(
             // Request headers
@@ -33,7 +35,7 @@ class CognitiveAPI extends Controller
             'detectOrientation ' => 'true',
         );
         $url->setQueryVariables($parameters);
-        $request->setMethod(HTTP_Request2::METHOD_POST);
+        $request->setMethod(\HTTP_Request2::METHOD_POST);
         // Request body
         $urlData = array('url' => "https://c2.staticflickr.com/6/5283/5685590377_23207b673d_b.jpg");
         $urlDataJsonEncode = json_encode($urlData);
@@ -46,9 +48,9 @@ class CognitiveAPI extends Controller
         }
     }
 
-    public function showTag(Request $request)
+    public function showTag()
     {
-        $request = new Http_Request2('https://api.projectoxford.ai/vision/v1.0/tag');
+        $request = new \Http_Request2('https://api.projectoxford.ai/vision/v1.0/tag');
         $url = $request->getUrl();
         $headers = array(
             // Request headers
@@ -59,7 +61,7 @@ class CognitiveAPI extends Controller
         $parameters = array(// Request parameters
         );
         $url->setQueryVariables($parameters);
-        $request->setMethod(HTTP_Request2::METHOD_POST);
+        $request->setMethod(\HTTP_Request2::METHOD_POST);
         // Request body
         $urlData = array('url' => "https://c2.staticflickr.com/6/5283/5685590377_23207b673d_b.jpg");
         $urlDataJsonEncode = json_encode($urlData);
