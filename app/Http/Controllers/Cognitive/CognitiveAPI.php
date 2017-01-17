@@ -26,7 +26,7 @@ class CognitiveAPI extends Controller
         $headers = array(
             // Request headers
             'Content-Type' => 'application/json',
-            'Ocp-Apim-Subscription-Key' => '8fcd03e7f72d4ef4b9cbd4bf4bedb0f9',
+            'Ocp-Apim-Subscription-Key' => App::environment('COGNITIVE_TEXT_KEY'),
         );
         $request->setHeader($headers);
         $parameters = array(
@@ -55,7 +55,7 @@ class CognitiveAPI extends Controller
         $headers = array(
             // Request headers
             'Content-Type' => 'application/json',
-            'Ocp-Apim-Subscription-Key' => '8fcd03e7f72d4ef4b9cbd4bf4bedb0f9',
+            'Ocp-Apim-Subscription-Key' => App::environment('COGNITIVE_VISION_KEY'),
         );
         $request->setHeader($headers);
         $parameters = array(// Request parameters
