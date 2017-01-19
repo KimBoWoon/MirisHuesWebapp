@@ -11,11 +11,11 @@ return [
     | using this caching library. This connection is used when another is
     | not explicitly specified when executing a given caching function.
     |
-    | Supported: "apc", "array", "database", "file", "memcached", "redis"
+    | Supported: "apc", "array", "database", "File", "memcached", "redis"
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'file'),
+    'default' => env('CACHE_DRIVER', 'File'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,8 +44,8 @@ return [
             'connection' => null,
         ],
 
-        'file' => [
-            'driver' => 'file',
+        'File' => [
+            'driver' => 'File',
             'path' => storage_path('framework/cache'),
         ],
 

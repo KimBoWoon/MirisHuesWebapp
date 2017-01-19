@@ -19,9 +19,5 @@ Route::get('/info', 'Cognitive\CognitiveAPI@index');
 Route::get('/text', 'Cognitive\CognitiveAPI@showText');
 Route::get('/tag', 'Cognitive\CognitiveAPI@showTag');
 
-Route::get('/c', function () {
-    echo 'Hello, World!';
-});
-
-Route::get('/uploadfile', 'UploadFileController@index');
-Route::post('/uploadfile', 'UploadFileController@showUploadFile');
+Route::get('/uploadfile', 'File\UploadFileController@index');
+Route::post('/uploadfile', 'File\UploadFileController@showUploadFile');

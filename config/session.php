@@ -11,12 +11,12 @@ return [
     | requests. By default, we will use the lightweight native driver but
     | you may specify any of the other wonderful drivers provided here.
     |
-    | Supported: "file", "cookie", "database", "apc",
+    | Supported: "File", "cookie", "database", "apc",
     |            "memcached", "redis", "array"
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'file'),
+    'driver' => env('SESSION_DRIVER', 'File'),
 
     /*
     |--------------------------------------------------------------------------
@@ -53,7 +53,7 @@ return [
     |
     | When using the native session driver, we need a location where session
     | files may be stored. A default has been set for you but a different
-    | location may be specified. This is only needed for file sessions.
+    | location may be specified. This is only needed for File sessions.
     |
     */
 

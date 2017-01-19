@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\File;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
+//use App\Http\Requests;
 
 class UploadFileController extends Controller
 {
     public function index()
     {
-        return view('/file/upload');
+        return view('file/upload');
     }
 
     public function showUploadFile(Request $request)
