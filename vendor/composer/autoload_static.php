@@ -16,6 +16,7 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -85,6 +86,7 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
         ),
         'C' => 
         array (
+            'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
         ),
@@ -221,6 +223,10 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'ClassPreloader\\' => 
         array (
             0 => __DIR__ . '/..' . '/classpreloader/classpreloader/src',
@@ -242,6 +248,10 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
             ),
+            'PEAR' => 
+            array (
+                0 => __DIR__ . '/..' . '/pear/pear_exception',
+            ),
         ),
         'M' => 
         array (
@@ -259,6 +269,13 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
             'JakubOnderka\\PhpConsoleColor' => 
             array (
                 0 => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src',
+            ),
+        ),
+        'H' => 
+        array (
+            'HTTP_Request2' => 
+            array (
+                0 => __DIR__ . '/..' . '/pear/http_request2',
             ),
         ),
         'D' => 
@@ -284,7 +301,9 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\Cognitive\\CognitiveAPI' => __DIR__ . '/../..' . '/app/Http/Controllers/Cognitive/CognitiveAPI.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\File\\UploadFileController' => __DIR__ . '/../..' . '/app/Http/Controllers/File/UploadFileController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -312,6 +331,13 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
         'ClassPreloader\\Parser\\FileVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/FileVisitor.php',
         'ClassPreloader\\Parser\\NodeTraverser' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/NodeTraverser.php',
         'ClassPreloader\\Parser\\StrictTypesVisitor' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/Parser/StrictTypesVisitor.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
@@ -760,6 +786,38 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'HTTP_Request2' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2.php',
+        'HTTP_Request2Test' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2Test.php',
+        'HTTP_Request2_Adapter' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Adapter.php',
+        'HTTP_Request2_Adapter_CommonNetworkTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/Adapter/CommonNetworkTest.php',
+        'HTTP_Request2_Adapter_Curl' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Adapter/Curl.php',
+        'HTTP_Request2_Adapter_CurlTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/Adapter/CurlTest.php',
+        'HTTP_Request2_Adapter_Mock' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Adapter/Mock.php',
+        'HTTP_Request2_Adapter_MockTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/Adapter/MockTest.php',
+        'HTTP_Request2_Adapter_Skip_CurlTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/Adapter/SkippedTests.php',
+        'HTTP_Request2_Adapter_Skip_SocketProxyTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/Adapter/SkippedTests.php',
+        'HTTP_Request2_Adapter_Skip_SocketTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/Adapter/SkippedTests.php',
+        'HTTP_Request2_Adapter_Socket' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Adapter/Socket.php',
+        'HTTP_Request2_Adapter_SocketProxyTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/Adapter/SocketProxyTest.php',
+        'HTTP_Request2_Adapter_SocketTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/Adapter/SocketTest.php',
+        'HTTP_Request2_AllTests' => __DIR__ . '/..' . '/pear/http_request2/tests/AllTests.php',
+        'HTTP_Request2_ConnectionException' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Exception.php',
+        'HTTP_Request2_CookieJar' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/CookieJar.php',
+        'HTTP_Request2_CookieJarTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/CookieJarTest.php',
+        'HTTP_Request2_Exception' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Exception.php',
+        'HTTP_Request2_LogicException' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Exception.php',
+        'HTTP_Request2_MessageException' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Exception.php',
+        'HTTP_Request2_MockObserver' => __DIR__ . '/..' . '/pear/http_request2/tests/ObserverTest.php',
+        'HTTP_Request2_MultipartBody' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/MultipartBody.php',
+        'HTTP_Request2_MultipartBodyTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/MultipartBodyTest.php',
+        'HTTP_Request2_NotImplementedException' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Exception.php',
+        'HTTP_Request2_ObserverTest' => __DIR__ . '/..' . '/pear/http_request2/tests/ObserverTest.php',
+        'HTTP_Request2_Observer_Log' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Observer/Log.php',
+        'HTTP_Request2_Observer_UncompressingDownload' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Observer/UncompressingDownload.php',
+        'HTTP_Request2_Response' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/Response.php',
+        'HTTP_Request2_ResponseTest' => __DIR__ . '/..' . '/pear/http_request2/tests/Request2/ResponseTest.php',
+        'HTTP_Request2_SOCKS5' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/SOCKS5.php',
+        'HTTP_Request2_SocketWrapper' => __DIR__ . '/..' . '/pear/http_request2/HTTP/Request2/SocketWrapper.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -1655,6 +1713,9 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
+        'Net_URL2' => __DIR__ . '/..' . '/pear/net_url2/Net/URL2.php',
+        'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
+        'PEAR_ExceptionTest' => __DIR__ . '/..' . '/pear/pear_exception/tests/PEAR/ExceptionTest.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
         'PHPUnit\\Framework\\TestCase' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/TestCase.php',
