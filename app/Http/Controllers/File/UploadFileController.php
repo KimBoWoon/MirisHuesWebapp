@@ -5,6 +5,7 @@ namespace App\Http\Controllers\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Storage;
 
 class UploadFileController extends Controller
 {
@@ -15,7 +16,6 @@ class UploadFileController extends Controller
 
     public function showUploadFile(Request $request)
     {
-//        echo json_encode($request->all());
         $file = $request->file('image');
 
         //Display File Name
@@ -38,7 +38,10 @@ class UploadFileController extends Controller
         echo 'File Mime Type: ' . $file->getMimeType();
 
         //Move Uploaded File
-        $destinationPath = 'uploads';
-        $file->move($destinationPath, $file->getClientOriginalName());
+        Storage::disk('local')->put('public/' . $file->getClientOriginalName(), "");
+        echo '<br>';
+
+        echo Storage::url('image.jpg');
+        echo '<br>';
     }
 }
