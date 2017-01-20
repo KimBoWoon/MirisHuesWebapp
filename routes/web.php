@@ -23,7 +23,7 @@ Route::get('/uploadfile', 'File\UploadFileController@index');
 Route::post('/uploadfile', 'File\UploadFileController@showUploadFile');
 
 Route::get('images/{filename}', function ($filename) {
-    $path = storage_path() . '/public/' . $filename;
+    $path = storage_path() . '\public\\' . $filename;
 
     echo $path;
     echo '<br>';
