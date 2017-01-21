@@ -27,16 +27,15 @@ Route::get('images/{filename}', function ($filename) {
 
     echo $path;
     echo '<br>';
-    echo !File::exists($path);
-//    if (!File::exists($path)) {
-//        abort(404);
-//    }
-//
-//    $file = File::get($path);
-//    $type = File::mimeType($path);
-//
-//    $response = Response::make($file, 200);
-//    $response->header("Content-Type", $type);
-//
-//    return $response;
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
 });

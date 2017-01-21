@@ -9,7 +9,7 @@
  */
 echo Form::open(array('url' => '/uploadfile', 'files' => 'true'));
 echo 'Select the File to upload.';
-echo Form::File('image');
+echo Form::File('photo');
 echo Form::submit('Upload File');
 echo Form::close();
 ?>
