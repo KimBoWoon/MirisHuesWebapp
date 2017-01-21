@@ -12,6 +12,10 @@
 * composer require "intervention/image"
 ```
 
+## Execution
+* composer install
+* php artisan serve
+
 
 
 
