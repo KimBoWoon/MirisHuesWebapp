@@ -9,6 +9,7 @@
         "intervention/image": "^2.3",
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.3",
+        "microsoft/windowsazure": "^0.5.0",
         "pear/http_request2": "^2.3"
     },
     "require-dev": {
