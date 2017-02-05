@@ -92,7 +92,7 @@ class CognitiveAPI extends Controller
 
         $url->setQueryVariables($parameters);
 
-        $request->setMethod(HTTP_Request2::METHOD_POST);
+        $request->setMethod(\HTTP_Request2::METHOD_POST);
 
         // Request body
         $urlString = FileController::getImageUrl();
