@@ -11,21 +11,20 @@
 |
 */
 
-use Intervention\Image\Facades\Image;
-
+// Index Page
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/info', 'Cognitive\CognitiveAPI@index');
+// Cognitive API
 Route::get('/text', 'Cognitive\CognitiveAPI@showText');
 Route::get('/tag', 'Cognitive\CognitiveAPI@showTag');
+Route::get('/description', 'Cognitive\CognitiveAPI@showDescription');
 
-Route::get('/uploadfile', 'File\FileController@index');
-Route::post('/uploadfile', 'File\FileController@showUploadFile');
+// File
+// 업로드 확인을 위한 라우팅
+//Route::get('/uploadfile', 'File\FileController@index');
+//Route::post('/uploadfile', 'File\FileController@storageFileUpload');
 
-//Route::get('/images/{filename}', function ($filename) {
-//    return Image::make(storage_path() . '/images/' . $filename)->response();
-//});
-
-Route::get('/images', 'File\FileController@getImageUrl');
+// Image Url 디버깅용
+// Route::get('/images', 'File\FileController@getImageUrl');
