@@ -3798,6 +3798,59 @@
         ]
     },
     {
+        "name": "guzzlehttp/promises",
+        "version": "v1.3.1",
+        "version_normalized": "1.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/promises.git",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.0"
+        },
+        "time": "2016-12-20T10:07:11+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Promise\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle promises library",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
         "name": "psr/http-message",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -4021,6 +4074,57 @@
         ]
     },
     {
+        "name": "zendframework/zend-mime",
+        "version": "2.6.1",
+        "version_normalized": "2.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/zendframework/zend-mime.git",
+            "reference": "9e53a97a3c190d45cc5d584daaaf487d509a9285"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/zendframework/zend-mime/zipball/9e53a97a3c190d45cc5d584daaaf487d509a9285",
+            "reference": "9e53a97a3c190d45cc5d584daaaf487d509a9285",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5 || ^7.0",
+            "zendframework/zend-stdlib": "^2.7 || ^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.7 || ^5.7",
+            "zendframework/zend-coding-standard": "~1.0.0",
+            "zendframework/zend-mail": "^2.6"
+        },
+        "suggest": {
+            "zendframework/zend-mail": "Zend\\Mail component"
+        },
+        "time": "2017-01-16T16:43:38+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.6-dev",
+                "dev-develop": "2.7-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Zend\\Mime\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "homepage": "https://github.com/zendframework/zend-mime",
+        "keywords": [
+            "mime",
+            "zf2"
+        ]
+    },
+    {
         "name": "container-interop/container-interop",
         "version": "1.1.0",
         "version_normalized": "1.1.0.0",
@@ -4119,57 +4223,6 @@
         "homepage": "https://github.com/zendframework/zend-validator",
         "keywords": [
             "validator",
-            "zf2"
-        ]
-    },
-    {
-        "name": "zendframework/zend-mime",
-        "version": "2.6.1",
-        "version_normalized": "2.6.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/zendframework/zend-mime.git",
-            "reference": "9e53a97a3c190d45cc5d584daaaf487d509a9285"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/zendframework/zend-mime/zipball/9e53a97a3c190d45cc5d584daaaf487d509a9285",
-            "reference": "9e53a97a3c190d45cc5d584daaaf487d509a9285",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.5 || ^7.0",
-            "zendframework/zend-stdlib": "^2.7 || ^3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^4.7 || ^5.7",
-            "zendframework/zend-coding-standard": "~1.0.0",
-            "zendframework/zend-mail": "^2.6"
-        },
-        "suggest": {
-            "zendframework/zend-mail": "Zend\\Mail component"
-        },
-        "time": "2017-01-16T16:43:38+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.6-dev",
-                "dev-develop": "2.7-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Zend\\Mime\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "homepage": "https://github.com/zendframework/zend-mime",
-        "keywords": [
-            "mime",
             "zf2"
         ]
     },
@@ -4282,57 +4335,147 @@
         ]
     },
     {
-        "name": "guzzlehttp/promises",
-        "version": "v1.3.1",
-        "version_normalized": "1.3.1.0",
+        "name": "pear/console_getopt",
+        "version": "v1.4.1",
+        "version_normalized": "1.4.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/guzzle/promises.git",
-            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            "url": "https://github.com/pear/Console_Getopt.git",
+            "reference": "82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
-            "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+            "url": "https://api.github.com/repos/pear/Console_Getopt/zipball/82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f",
+            "reference": "82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f",
             "shasum": ""
         },
-        "require": {
-            "php": ">=5.5.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^4.0"
-        },
-        "time": "2016-12-20T10:07:11+00:00",
+        "time": "2015-07-20T20:28:12+00:00",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.4-dev"
-            }
-        },
         "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "GuzzleHttp\\Promise\\": "src/"
-            },
-            "files": [
-                "src/functions_include.php"
-            ]
+            "psr-0": {
+                "Console": "./"
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
+        "include-path": [
+            "./"
+        ],
         "license": [
-            "MIT"
+            "BSD-2-Clause"
         ],
         "authors": [
             {
-                "name": "Michael Dowling",
-                "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
+                "name": "Greg Beaver",
+                "email": "cellog@php.net",
+                "role": "Helper"
+            },
+            {
+                "name": "Andrei Zmievski",
+                "email": "andrei@php.net",
+                "role": "Lead"
+            },
+            {
+                "name": "Stig Bakken",
+                "email": "stig@php.net",
+                "role": "Developer"
             }
         ],
-        "description": "Guzzle promises library",
-        "keywords": [
-            "promise"
-        ]
+        "description": "More info available on: http://pear.php.net/package/Console_Getopt"
+    },
+    {
+        "name": "pear/pear-core-minimal",
+        "version": "v1.10.1",
+        "version_normalized": "1.10.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pear/pear-core-minimal.git",
+            "reference": "cae0f1ce0cb5bddb611b0a652d322905a65a5896"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pear/pear-core-minimal/zipball/cae0f1ce0cb5bddb611b0a652d322905a65a5896",
+            "reference": "cae0f1ce0cb5bddb611b0a652d322905a65a5896",
+            "shasum": ""
+        },
+        "require": {
+            "pear/console_getopt": "~1.3",
+            "pear/pear_exception": "~1.0"
+        },
+        "replace": {
+            "rsky/pear-core-min": "self.version"
+        },
+        "time": "2015-10-17T11:41:19+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "include-path": [
+            "src/"
+        ],
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Christian Weiske",
+                "email": "cweiske@php.net",
+                "role": "Lead"
+            }
+        ],
+        "description": "Minimal set of PEAR core files to be used as composer dependency"
+    },
+    {
+        "name": "pear/mail_mime",
+        "version": "1.10.0",
+        "version_normalized": "1.10.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pear/Mail_Mime.git",
+            "reference": "e071727cf41a4b85ecc1de210ed4fd7f4f8d1ec4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pear/Mail_Mime/zipball/e071727cf41a4b85ecc1de210ed4fd7f4f8d1ec4",
+            "reference": "e071727cf41a4b85ecc1de210ed4fd7f4f8d1ec4",
+            "shasum": ""
+        },
+        "require": {
+            "pear/pear-core-minimal": "*"
+        },
+        "time": "2015-09-13T12:42:41+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Mail": "./"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "include-path": [
+            "./"
+        ],
+        "license": [
+            "BSD Style"
+        ],
+        "authors": [
+            {
+                "name": "Cipriano Groenendal",
+                "email": "cipri@php.net",
+                "role": "Lead"
+            },
+            {
+                "name": "Aleksander Machniak",
+                "email": "alec@php.net",
+                "role": "Lead"
+            }
+        ],
+        "description": "Mail_Mime provides classes to create MIME messages",
+        "homepage": "http://pear.php.net/package/Mail_Mime"
     },
     {
         "name": "guzzlehttp/guzzle",
@@ -4502,149 +4645,6 @@
         ],
         "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
         "homepage": "https://github.com/firebase/php-jwt"
-    },
-    {
-        "name": "pear/console_getopt",
-        "version": "v1.4.1",
-        "version_normalized": "1.4.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/pear/Console_Getopt.git",
-            "reference": "82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/pear/Console_Getopt/zipball/82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f",
-            "reference": "82f05cd1aa3edf34e19aa7c8ca312ce13a6a577f",
-            "shasum": ""
-        },
-        "time": "2015-07-20T20:28:12+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Console": "./"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "include-path": [
-            "./"
-        ],
-        "license": [
-            "BSD-2-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Greg Beaver",
-                "email": "cellog@php.net",
-                "role": "Helper"
-            },
-            {
-                "name": "Andrei Zmievski",
-                "email": "andrei@php.net",
-                "role": "Lead"
-            },
-            {
-                "name": "Stig Bakken",
-                "email": "stig@php.net",
-                "role": "Developer"
-            }
-        ],
-        "description": "More info available on: http://pear.php.net/package/Console_Getopt"
-    },
-    {
-        "name": "pear/pear-core-minimal",
-        "version": "v1.10.1",
-        "version_normalized": "1.10.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/pear/pear-core-minimal.git",
-            "reference": "cae0f1ce0cb5bddb611b0a652d322905a65a5896"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/pear/pear-core-minimal/zipball/cae0f1ce0cb5bddb611b0a652d322905a65a5896",
-            "reference": "cae0f1ce0cb5bddb611b0a652d322905a65a5896",
-            "shasum": ""
-        },
-        "require": {
-            "pear/console_getopt": "~1.3",
-            "pear/pear_exception": "~1.0"
-        },
-        "replace": {
-            "rsky/pear-core-min": "self.version"
-        },
-        "time": "2015-10-17T11:41:19+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "include-path": [
-            "src/"
-        ],
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Christian Weiske",
-                "email": "cweiske@php.net",
-                "role": "Lead"
-            }
-        ],
-        "description": "Minimal set of PEAR core files to be used as composer dependency"
-    },
-    {
-        "name": "pear/mail_mime",
-        "version": "1.10.0",
-        "version_normalized": "1.10.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/pear/Mail_Mime.git",
-            "reference": "e071727cf41a4b85ecc1de210ed4fd7f4f8d1ec4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/pear/Mail_Mime/zipball/e071727cf41a4b85ecc1de210ed4fd7f4f8d1ec4",
-            "reference": "e071727cf41a4b85ecc1de210ed4fd7f4f8d1ec4",
-            "shasum": ""
-        },
-        "require": {
-            "pear/pear-core-minimal": "*"
-        },
-        "time": "2015-09-13T12:42:41+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Mail": "./"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "include-path": [
-            "./"
-        ],
-        "license": [
-            "BSD Style"
-        ],
-        "authors": [
-            {
-                "name": "Cipriano Groenendal",
-                "email": "cipri@php.net",
-                "role": "Lead"
-            },
-            {
-                "name": "Aleksander Machniak",
-                "email": "alec@php.net",
-                "role": "Lead"
-            }
-        ],
-        "description": "Mail_Mime provides classes to create MIME messages",
-        "homepage": "http://pear.php.net/package/Mail_Mime"
     },
     {
         "name": "microsoft/windowsazure",

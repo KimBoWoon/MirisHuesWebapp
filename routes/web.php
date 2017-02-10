@@ -20,6 +20,7 @@ Route::get('/', function () {
 Route::get('/text', 'Cognitive\CognitiveAPI@showText');
 Route::get('/tag', 'Cognitive\CognitiveAPI@showTag');
 Route::get('/description', 'Cognitive\CognitiveAPI@showDescription');
+Route::get('/test', 'Cognitive\GetAzureToken@translateText');
 
 // File
 // 업로드 확인을 위한 라우팅
