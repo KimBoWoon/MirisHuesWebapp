@@ -106,7 +106,7 @@ class CognitiveAPI extends Controller
             $response = $request->send();
             $inputText = json_decode(utf8_encode($response->getBody()), TRUE);
             $str = $translate->translateText($inputText['description']['captions'][0]['text']);
-            echo json_encode(array('description' => $str));
+            echo json_encode(array('description' => array('text' => $str)));
         } catch (HttpException $ex) {
             echo $ex;
         }
