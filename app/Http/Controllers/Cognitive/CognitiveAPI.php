@@ -71,13 +71,15 @@ class CognitiveAPI extends Controller
             echo $ex;
         }
     }
-    
-    public function showDescription() {
+
+    public function showDescription()
+    {
+        $translate = new GetAzureToken();
         $request = new \Http_Request2('https://westus.api.cognitive.microsoft.com/vision/v1.0/analyze');
         $url = $request->getUrl();
 
         $headers = array(
-        // Request headers
+            // Request headers
             'Content-Type' => 'application/json',
             'Ocp-Apim-Subscription-Key' => env('COGNITIVE_VISION_KEY'),
         );
@@ -100,13 +102,12 @@ class CognitiveAPI extends Controller
         $urlDataJsonEncode = json_encode($urlData);
         $request->setBody($urlDataJsonEncode);
 
-        try
-        {
+        try {
             $response = $request->send();
-            echo $response->getBody();
-        }
-        catch (HttpException $ex)
-        {
+            $inputText = json_decode(utf8_encode($response->getBody()), TRUE);
+            $str = $translate->translateText($inputText['description']['captions'][0]['text']);
+            echo json_encode(array('description' => $str));
+        } catch (HttpException $ex) {
             echo $ex;
         }
     }

@@ -50,16 +50,15 @@ class GetAzureToken
         return $curlResponse;
     }
 
-    function translateText()
+    function translateText($inputText)
     {
         $azure_key = env("AZURE_KEY");  // !!! TODO: secret key here !!!
         $fromLanguage = "en";
         $toLanguage = "ko";
-        $inputStr = "my name is kim";
 
         $accessToken = GetAzureToken::getToken($azure_key);
         $authHeader = "Authorization: Bearer ". $accessToken;
-        $params = "text=" . urlencode($inputStr) . "&to=" . $toLanguage . "&from=" . $fromLanguage . "&appId=Bearer+" . $accessToken;
+        $params = "text=" . urlencode($inputText) . "&to=" . $toLanguage . "&from=" . $fromLanguage . "&appId=Bearer+" . $accessToken;
         $translateUrl = "http://api.microsofttranslator.com/v2/Http.svc/Translate?$params";
         $curlResponse = GetAzureToken::curlRequest($translateUrl, $authHeader);
         $xmlObj = simplexml_load_string($curlResponse);
@@ -67,8 +66,7 @@ class GetAzureToken
             $translatedStr = $val;
         }
         // Translation output:
-        echo "<p>From " . $fromLanguage . ": " . $inputStr . "<br>";
-        echo "To " . $toLanguage . ": " . $translatedStr . "<br>";
-//        echo date(r) . "<p>";
+
+        return $translatedStr;
     }
 }
