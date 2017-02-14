@@ -22,7 +22,8 @@ class GetAzureToken
     {
         $url = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken';
         $ch = curl_init();
-        $data_string = json_encode('{body}');
+        $data_string = json_encode('{body}', TRUE);
+        echo $data_string . '<br>';
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/json',
