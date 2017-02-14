@@ -57,16 +57,20 @@ class GetAzureToken
         $toLanguage = "ko";
 
         $accessToken = GetAzureToken::getToken($azure_key);
-        $authHeader = "Authorization:+Bearer+". $accessToken;
+        $authHeader = "Authorization:+Bearer+" . $accessToken;
+        echo $authHeader . '<br>';
         $params = "text=" . urlencode($inputText) . "&to=" . $toLanguage . "&from=" . $fromLanguage . "&appId=Bearer+" . $accessToken;
         $translateUrl = "http://api.microsofttranslator.com/v2/Http.svc/Translate?$params";
         $curlResponse = GetAzureToken::curlRequest($translateUrl, $authHeader);
+        echo $curlResponse . '<br>';
         $xmlObj = simplexml_load_string($curlResponse);
+        echo $xmlObj . '<br>';
         foreach ((array)$xmlObj[0] as $val) {
             $translatedStr = $val;
         }
         // Translation output:
 
+        echo $translatedStr . '<br>';
         return $translatedStr;
     }
 }
