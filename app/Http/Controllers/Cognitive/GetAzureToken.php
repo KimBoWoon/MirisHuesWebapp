@@ -35,6 +35,7 @@ class GetAzureToken
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $strResponse = curl_exec($ch);
         curl_close($ch);
+        echo $strResponse . '<br>';
         return $strResponse;
     }
 
@@ -56,7 +57,6 @@ class GetAzureToken
         $fromLanguage = "en";
         $toLanguage = "ko";
 
-        echo $azure_key . '<br>';
         $accessToken = GetAzureToken::getToken($azure_key);
         $authHeader = "Authorization:+Bearer+" . $accessToken;
         echo $authHeader . '<br>';
