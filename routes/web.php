@@ -20,12 +20,3 @@ Route::get('/', function () {
 Route::get('/text', 'Cognitive\CognitiveAPI@showText');
 Route::get('/tag', 'Cognitive\CognitiveAPI@showTag');
 Route::get('/description', 'Cognitive\CognitiveAPI@showDescription');
-Route::get('/test', 'Cognitive\GetAzureToken@translateText');
-
-// File
-// 업로드 확인을 위한 라우팅
-//Route::get('/uploadfile', 'File\FileController@index');
-//Route::post('/uploadfile', 'File\FileController@storageFileUpload');
-
-// Image Url 디버깅용
-// Route::get('/images', 'File\FileController@getImageUrl');

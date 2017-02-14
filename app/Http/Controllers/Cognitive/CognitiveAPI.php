@@ -9,7 +9,8 @@
 namespace App\Http\Controllers\Cognitive;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\File\FileController;
+use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\ServicesBuilder;
 
 require_once 'HTTP/Request2.php';
 
@@ -33,7 +34,7 @@ class CognitiveAPI extends Controller
         $url->setQueryVariables($parameters);
         $request->setMethod(\HTTP_Request2::METHOD_POST);
         // Request body
-        $urlString = FileController::getImageUrl();
+        $urlString = CognitiveAPI::getImageUrl();
         $urlData = array('url' => $urlString);
         $urlDataJsonEncode = json_encode($urlData);
         $request->setBody($urlDataJsonEncode);
@@ -60,7 +61,7 @@ class CognitiveAPI extends Controller
         $url->setQueryVariables($parameters);
         $request->setMethod(\HTTP_Request2::METHOD_POST);
         // Request body
-        $urlString = FileController::getImageUrl();
+        $urlString = CognitiveAPI::getImageUrl();
         $urlData = array('url' => $urlString);
         $urlDataJsonEncode = json_encode($urlData);
         $request->setBody($urlDataJsonEncode);
@@ -97,7 +98,7 @@ class CognitiveAPI extends Controller
         $request->setMethod(\HTTP_Request2::METHOD_POST);
 
         // Request body
-        $urlString = FileController::getImageUrl();
+        $urlString = CognitiveAPI::getImageUrl();
         $urlData = array('url' => $urlString);
         $urlDataJsonEncode = json_encode($urlData);
         $request->setBody($urlDataJsonEncode);
@@ -109,6 +110,29 @@ class CognitiveAPI extends Controller
             echo json_encode(array('description' => array('text' => $str)));
         } catch (HttpException $ex) {
             echo $ex;
+        }
+    }
+
+    function getImageUrl()
+    {
+        $connectionString = 'DefaultEndpointsProtocol=https;AccountName=' . env('ACCOUNT_NAME') . ';AccountKey=' . env('ACCOUNT_KEY');
+
+        // Create blob REST proxy.
+        $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
+
+        try {
+            // List blobs.
+            $blob_list = $blobRestProxy->listBlobs('images');
+            $blobs = $blob_list->getBlobs();
+            ksort($blobs);
+            return $blobs[count($blobs) - 2]->getUrl();
+        } catch (ServiceException $e) {
+            // Handle exception based on error codes and messages.
+            // Error codes and messages are here:
+            // http://msdn.microsoft.com/library/azure/dd179439.aspx
+            $code = $e->getCode();
+            $error_message = $e->getMessage();
+            echo $code . ": " . $error_message . "<br />";
         }
     }
 }
