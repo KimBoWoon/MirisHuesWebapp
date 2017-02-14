@@ -56,6 +56,7 @@ class GetAzureToken
         $fromLanguage = "en";
         $toLanguage = "ko";
 
+        echo $azure_key . '<br>';
         $accessToken = GetAzureToken::getToken($azure_key);
         $authHeader = "Authorization:+Bearer+" . $accessToken;
         echo $authHeader . '<br>';
