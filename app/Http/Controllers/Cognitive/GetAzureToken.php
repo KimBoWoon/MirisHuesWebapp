@@ -22,9 +22,7 @@ class GetAzureToken
     {
         $url = 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken';
         $ch = curl_init();
-        echo var_dump($ch);
         $data_string = json_encode('{body}', TRUE);
-        echo $data_string . '<br>';
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type: application/json',
@@ -38,7 +36,6 @@ class GetAzureToken
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, False);
         $strResponse = curl_exec($ch);
         curl_close($ch);
-        echo $strResponse . '<br>';
         return $strResponse;
     }
 
@@ -62,19 +59,15 @@ class GetAzureToken
 
         $accessToken = GetAzureToken::getToken($azure_key);
         $authHeader = "Authorization:+Bearer+" . $accessToken;
-        echo $authHeader . '<br>';
         $params = "text=" . urlencode($inputText) . "&to=" . $toLanguage . "&from=" . $fromLanguage . "&appId=Bearer+" . $accessToken;
         $translateUrl = "http://api.microsofttranslator.com/v2/Http.svc/Translate?$params";
         $curlResponse = GetAzureToken::curlRequest($translateUrl, $authHeader);
-        echo $curlResponse . '<br>';
         $xmlObj = simplexml_load_string($curlResponse);
-        echo $xmlObj . '<br>';
         foreach ((array)$xmlObj[0] as $val) {
             $translatedStr = $val;
         }
         // Translation output:
 
-        echo $translatedStr . '<br>';
         return $translatedStr;
     }
 }
