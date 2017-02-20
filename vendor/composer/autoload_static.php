@@ -395,7 +395,6 @@ class ComposerStaticInit5e1f5eaf49406967c79859fcbb2a407b
         'App\\Http\\Controllers\\Cognitive\\CognitiveAPI' => __DIR__ . '/../..' . '/app/Http/Controllers/Cognitive/CognitiveAPI.php',
         'App\\Http\\Controllers\\Cognitive\\GetAzureToken' => __DIR__ . '/../..' . '/app/Http/Controllers/Cognitive/GetAzureToken.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\File\\FileController' => __DIR__ . '/../..' . '/app/Http/Controllers/File/FileController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',

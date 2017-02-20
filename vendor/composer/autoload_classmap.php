@@ -15,7 +15,6 @@ return array(
     'App\\Http\\Controllers\\Cognitive\\CognitiveAPI' => $baseDir . '/app/Http/Controllers/Cognitive/CognitiveAPI.php',
     'App\\Http\\Controllers\\Cognitive\\GetAzureToken' => $baseDir . '/app/Http/Controllers/Cognitive/GetAzureToken.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
-    'App\\Http\\Controllers\\File\\FileController' => $baseDir . '/app/Http/Controllers/File/FileController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
