@@ -114,7 +114,7 @@ class CognitiveAPI extends Controller
         }
     }
 
-    function getImageUrl()
+    public function getImageUrl()
     {
         $connectionString = 'DefaultEndpointsProtocol=https;AccountName=' . env('ACCOUNT_NAME') . ';AccountKey=' . env('ACCOUNT_KEY');
 

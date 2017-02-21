@@ -9,8 +9,6 @@
 
 namespace App\Http\Controllers\Cognitive;
 
-use App\Http\Controllers\Controller;
-
 class GetAzureToken
 {
     public function index()

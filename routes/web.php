@@ -23,3 +23,6 @@ Route::get('/description', 'Cognitive\CognitiveAPI@showDescription');
 
 // Notification
 Route::get('/noti', 'Notification\Send@send');
+
+// OCR
+Route::get('/ocr', 'Tesseract\ocr@index');
