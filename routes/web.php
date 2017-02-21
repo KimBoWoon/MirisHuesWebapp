@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/text', 'Cognitive\CognitiveAPI@showText');
 Route::get('/tag', 'Cognitive\CognitiveAPI@showTag');
 Route::get('/description', 'Cognitive\CognitiveAPI@showDescription');
+
+// Notification
+Route::get('/noti', 'Notification\Send@send');
