@@ -9,8 +9,8 @@
 namespace App\Http\Controllers\Cognitive;
 
 use App\Http\Controllers\Controller;
-use MicrosoftAzure\Storage\Common\ServiceException;
 use MicrosoftAzure\Storage\Common\ServicesBuilder;
+use MicrosoftAzure\Storage\Common\ServiceException;
 
 require_once 'HTTP/Request2.php';
 
@@ -28,7 +28,7 @@ class CognitiveAPI extends Controller
         $request->setHeader($headers);
         $parameters = array(
             // Request parameters
-            'language' => 'en',
+            'language' => 'ko',
             'detectOrientation ' => 'true',
         );
         $url->setQueryVariables($parameters);

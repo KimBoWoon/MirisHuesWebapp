@@ -9,11 +9,8 @@ return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'PEAR' => array($vendorDir . '/pear/pear_exception'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
-    'Mail' => array($vendorDir . '/pear/mail_mime'),
     'JakubOnderka\\PhpConsoleHighlighter' => array($vendorDir . '/jakub-onderka/php-console-highlighter/src'),
     'JakubOnderka\\PhpConsoleColor' => array($vendorDir . '/jakub-onderka/php-console-color/src'),
     'HTTP_Request2' => array($vendorDir . '/pear/http_request2'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),
-    'Console' => array($vendorDir . '/pear/console_getopt'),
-    '' => array($vendorDir . '/pear/pear-core-minimal/src'),
 );

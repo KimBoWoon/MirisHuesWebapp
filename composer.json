@@ -9,9 +9,9 @@
         "intervention/image": "^2.3",
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.3",
-        "microsoft/windowsazure": "^0.5.0",
         "pear/http_request2": "^2.3",
-        "thiagoalessio/tesseract_ocr": "1.0.0-RC"
+        "thiagoalessio/tesseract_ocr": "1.0.0-RC",
+        "microsoft/azure-storage": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
