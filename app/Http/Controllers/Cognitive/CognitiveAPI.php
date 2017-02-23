@@ -123,7 +123,7 @@ class CognitiveAPI extends Controller
 
         try {
             // List blobs.
-            $blob_list = $blobRestProxy->listBlobs('images');
+            $blob_list = $blobRestProxy->listBlobs('/images');
             $blobs = $blob_list->getBlobs();
             ksort($blobs);
             return $blobs[count($blobs) - 2]->getUrl();
