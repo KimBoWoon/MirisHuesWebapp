@@ -25,4 +25,5 @@ Route::get('/description', 'Cognitive\CognitiveAPI@showDescription');
 Route::get('/noti', 'Notification\Send@send');
 
 // OCR
-Route::get('/ocr', 'Tesseract\ocr@index');
+Route::get('/ocr', 'Google\GoogleVisionAPI@getText');
+Route::get('/storage', 'Google\GoogleVisionAPI@googleStorage');

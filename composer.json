@@ -6,12 +6,13 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
+        "google/apiclient": "^2.1",
+        "google/cloud": "^0.21.1",
         "intervention/image": "^2.3",
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.3",
-        "pear/http_request2": "^2.3",
-        "thiagoalessio/tesseract_ocr": "1.0.0-RC",
-        "microsoft/azure-storage": "*"
+        "microsoft/azure-storage": "*",
+        "pear/http_request2": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
