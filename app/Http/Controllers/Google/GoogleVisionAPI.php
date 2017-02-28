@@ -14,6 +14,7 @@ use Google\Cloud\Storage\StorageClient;
 use Google\Cloud\ServiceBuilder;
 use Google_Client;
 use Google_Service_Books;
+use Google_Service_Drive;
 use Google_Service_Storage;
 
 class GoogleVisionAPI
@@ -21,8 +22,13 @@ class GoogleVisionAPI
     public function getText()
     {
         $client = new Google_Client();
+        $client->setAuthConfig(__DIR__ . '/miris_client_secret.json');
+        $client->setAccessType("offline");        // offline access
+        $client->setIncludeGrantedScopes(true);   // incremental auth
+        $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+//        $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
         $client->setApplicationName("miris");
-        $client->setDeveloperKey("AIzaSyDeJDWwJuOW8Z6SqpBlHyukgMIwNezPxes");
+        $client->setDeveloperKey(env('GOOGLE_CLIENT_KEY'));
 
         $storageService = new Google_Service_Storage($client);
         $buckets = $storageService->buckets;

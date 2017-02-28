@@ -6,3 +6,4 @@
 Homestead.json
 Homestead.yaml
 .env
+/app/Http/Controllers/Google/miris_client_secret.json
