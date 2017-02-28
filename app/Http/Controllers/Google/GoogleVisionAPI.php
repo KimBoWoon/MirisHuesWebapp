@@ -29,6 +29,8 @@ class GoogleVisionAPI
 //        $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
         $client->setApplicationName("miris");
         $client->setDeveloperKey(env('GOOGLE_CLIENT_KEY'));
+        $client->setClientId(env('GOOGLE_CLIENT_ID'));
+        $client->setClientSecret(env('GOOGLE_CLIENT_SECRET'));
 
         $storageService = new Google_Service_Storage($client);
         $buckets = $storageService->buckets;
