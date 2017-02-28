@@ -14,31 +14,41 @@ use Google\Cloud\Storage\StorageClient;
 use Google\Cloud\ServiceBuilder;
 use Google_Client;
 use Google_Service_Books;
+use Google_Service_Storage;
 
 class GoogleVisionAPI
 {
     public function getText()
     {
-        $projectId = 'miris-vision';
-        $bucketName = 'miris-storage';
-        $objectName = 'image1.jpg';
+        $client = new Google_Client();
+        $client->setApplicationName("miris");
+        $client->setDeveloperKey("AIzaSyDeJDWwJuOW8Z6SqpBlHyukgMIwNezPxes");
 
-        $builder = new ServiceBuilder([
-            'projectId' => $projectId,
-        ]);
-        $vision = $builder->vision();
-        $storage = $builder->storage();
+        $storageService = new Google_Service_Storage($client);
+        $buckets = $storageService->buckets;
 
-        // fetch the storage object and annotate the image
-        $object = $storage->bucket($bucketName)->object($objectName);
-        $image = $vision->image($object, ['TEXT_DETECTION']);
-        $result = $vision->annotate($image);
+        echo var_dump($buckets->listBuckets('miris-vision'));
 
-        // print the response
-        print("Texts:\n");
-        foreach ((array)$result->text() as $text) {
-            print($text->description() . PHP_EOL);
-        }
+//        $projectId = 'miris-vision';
+//        $bucketName = 'miris-storage';
+//        $objectName = 'image1.jpg';
+
+//        $builder = new ServiceBuilder([
+//            'projectId' => $projectId,
+//        ]);
+//        $vision = $builder->vision();
+//        $storage = $builder->storage();
+//
+//        // fetch the storage object and annotate the image
+//        $object = $storage->bucket($bucketName)->object($objectName);
+//        $image = $vision->image($object, ['TEXT_DETECTION']);
+//        $result = $vision->annotate($image);
+//
+//        // print the response
+//        print("Texts:\n");
+//        foreach ((array)$result->text() as $text) {
+//            print($text->description() . PHP_EOL);
+//        }
 //        $projectId = 'miris-vision';
 //        $bucketName = 'miris-storage';
 //        $objectName = 'image1.jpg';
