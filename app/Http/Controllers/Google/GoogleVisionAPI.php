@@ -11,7 +11,6 @@ namespace App\Http\Controllers\Google;
 
 use Google\Cloud\Storage\StorageClient;
 use Google_Client;
-use Google_Service_Drive;
 use Google_Service_Storage;
 use GuzzleHttp\Client;
 
@@ -21,14 +20,11 @@ class GoogleVisionAPI
     {
         $client = new Google_Client();
         $client->setAuthConfig(__DIR__ . '/miris_client_secret.json');
-        $client->setAccessType("offline");        // offline access
-        $client->setIncludeGrantedScopes(true);   // incremental auth
-        $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
-        $client->setHttpClient(new Client(['verify' => false]));
+        $client->setAccessType("online");
+        $client->authorize(new Client(['verify' => false]));
+        $client->addScope(Google_Service_Storage::DEVSTORAGE_FULL_CONTROL);
         $client->setApplicationName("miris");
         $client->setDeveloperKey(env('GOOGLE_CLIENT_KEY'));
-        $client->setClientId(env('GOOGLE_CLIENT_ID'));
-        $client->setClientSecret(env('GOOGLE_CLIENT_SECRET'));
 
         $storageService = new Google_Service_Storage($client);
         $buckets = $storageService->buckets;
