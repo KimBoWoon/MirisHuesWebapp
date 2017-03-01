@@ -9,13 +9,11 @@
 
 namespace App\Http\Controllers\Google;
 
-use Google\Cloud\Vision\VisionClient;
 use Google\Cloud\Storage\StorageClient;
-use Google\Cloud\ServiceBuilder;
 use Google_Client;
-use Google_Service_Books;
 use Google_Service_Drive;
 use Google_Service_Storage;
+use GuzzleHttp\Client;
 
 class GoogleVisionAPI
 {
@@ -26,8 +24,7 @@ class GoogleVisionAPI
         $client->setAccessType("offline");        // offline access
         $client->setIncludeGrantedScopes(true);   // incremental auth
         $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
-//        $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
-        $client->setDefaultOption('verify', false);
+        $client->setHttpClient(new Client(['verify' => false]));
         $client->setApplicationName("miris");
         $client->setDeveloperKey(env('GOOGLE_CLIENT_KEY'));
         $client->setClientId(env('GOOGLE_CLIENT_ID'));
@@ -37,47 +34,6 @@ class GoogleVisionAPI
         $buckets = $storageService->buckets;
 
         echo var_dump($buckets->listBuckets('miris-vision'));
-
-//        $projectId = 'miris-vision';
-//        $bucketName = 'miris-storage';
-//        $objectName = 'image1.jpg';
-
-//        $builder = new ServiceBuilder([
-//            'projectId' => $projectId,
-//        ]);
-//        $vision = $builder->vision();
-//        $storage = $builder->storage();
-//
-//        // fetch the storage object and annotate the image
-//        $object = $storage->bucket($bucketName)->object($objectName);
-//        $image = $vision->image($object, ['TEXT_DETECTION']);
-//        $result = $vision->annotate($image);
-//
-//        // print the response
-//        print("Texts:\n");
-//        foreach ((array)$result->text() as $text) {
-//            print($text->description() . PHP_EOL);
-//        }
-//        $projectId = 'miris-vision';
-//        $bucketName = 'miris-storage';
-//        $objectName = 'image1.jpg';
-//
-//        $builder = new ServiceBuilder([
-//            'projectId' => $projectId,
-//        ]);
-//        $vision = $builder->vision();
-//        $storage = $builder->storage();
-//
-//        // fetch the storage object and annotate the image
-//        $object = $storage->bucket($bucketName)->object($objectName);
-//        $image = $vision->image($object, ['TEXT_DETECTION']);
-//        $result = $vision->annotate($image);
-//
-//        // print the response
-//        print("Texts:\n");
-//        foreach ((array)$result->text() as $text) {
-//            print($text->description() . PHP_EOL);
-//        }
     }
 
     public function googleStorage()
