@@ -27,6 +27,7 @@ class GoogleVisionAPI
         $client->setIncludeGrantedScopes(true);   // incremental auth
         $client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
 //        $client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
+        $client->setDefaultOption('verify', false);
         $client->setApplicationName("miris");
         $client->setDeveloperKey(env('GOOGLE_CLIENT_KEY'));
         $client->setClientId(env('GOOGLE_CLIENT_ID'));
