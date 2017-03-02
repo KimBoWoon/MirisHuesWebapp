@@ -19,11 +19,9 @@ class GoogleVisionAPI
     public function getText()
     {
         $client = new Google_Client();
-        $client->setAuthConfig(__DIR__ . '/miris_client_secret.json');
-        $client->setAccessType("online");
-        $client->authorize(new Client(array(
-            'verify' => __DIR__ . '/cacert.pem',
-        )));
+        $client->setAuthConfig(__DIR__ . '/miris-vision.json');
+        $client->setAccessType("offline");
+        $client->authorize(new Client(['verify' => false]));
         $client->addScope(Google_Service_Storage::DEVSTORAGE_FULL_CONTROL);
         $client->setApplicationName("miris");
         $client->setDeveloperKey(env('GOOGLE_CLIENT_KEY'));
