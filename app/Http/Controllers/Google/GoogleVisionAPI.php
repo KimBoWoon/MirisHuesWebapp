@@ -20,6 +20,8 @@ class GoogleVisionAPI
 {
     public function getText()
     {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, False);
         # Your Google Cloud Platform project ID
         $projectId = 'miris-vision';
 
@@ -40,6 +42,8 @@ class GoogleVisionAPI
         # Performs label detection on the image file
         $texts = $vision->annotate($image)->text();
 
+        $strResponse = curl_exec($ch);
+        curl_close($ch);
         echo json_encode(array('description' => $texts[0]->description()));
     }
 
