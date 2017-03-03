@@ -13,6 +13,7 @@ use Google\Cloud\Storage\StorageClient;
 use Google_Client;
 use Google_Service_Storage;
 use GuzzleHttp\Client;
+use Google\Cloud\Vision\VisionClient;
 
 class GoogleVisionAPI
 {
@@ -22,14 +23,14 @@ class GoogleVisionAPI
         $client->setAuthConfig(__DIR__ . '/miris-vision.json');
         $client->setAccessType("offline");
         $client->authorize(new Client(['verify' => false]));
-        $client->addScope(Google_Service_Storage::DEVSTORAGE_FULL_CONTROL);
+        $client->addScope(Google_Service_Storage::DEVSTORAGE_READ_WRITE);
         $client->setApplicationName("miris");
         $client->setDeveloperKey(env('GOOGLE_CLIENT_KEY'));
 
         $storageService = new Google_Service_Storage($client);
         $buckets = $storageService->buckets;
 
-        echo var_dump($buckets->listBuckets('miris-vision'));
+        echo $buckets->get('miris-vision')->getAcl();
     }
 
     public function googleStorage()
