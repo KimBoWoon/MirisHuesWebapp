@@ -14,23 +14,33 @@ use Google_Client;
 use Google_Service_Storage;
 use GuzzleHttp\Client;
 use Google\Cloud\Vision\VisionClient;
+use Google\Cloud\ServiceBuilder;
 
 class GoogleVisionAPI
 {
     public function getText()
     {
-        $client = new Google_Client();
-        $client->setAuthConfig(__DIR__ . '/miris-vision.json');
-        $client->setAccessType("offline");
-        $client->authorize(new Client(['verify' => false]));
-        $client->addScope(Google_Service_Storage::DEVSTORAGE_READ_WRITE);
-        $client->setApplicationName("miris");
-        $client->setDeveloperKey(env('GOOGLE_CLIENT_KEY'));
+        # Your Google Cloud Platform project ID
+        $projectId = 'miris-vision';
 
-        $storageService = new Google_Service_Storage($client);
-        $buckets = $storageService->buckets;
+        # Instantiates a client
+        $vision = new VisionClient([
+            'projectId' => $projectId,
+            'keyFilePath' => __DIR__ . '/miris-vision.json'
+        ]);
 
-        echo $buckets->get('miris-vision')->getAcl();
+        # The name of the image file to annotate
+        $fileName = __DIR__ . '/image1.jpg';
+
+        # Prepare the image to be annotated
+        $image = $vision->image(fopen($fileName, 'r'), [
+            'TEXT_DETECTION'
+        ]);
+
+        # Performs label detection on the image file
+        $texts = $vision->annotate($image)->text();
+
+        echo json_encode(array('description' => $texts[0]->description()));
     }
 
     public function googleStorage()
