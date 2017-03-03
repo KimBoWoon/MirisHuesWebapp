@@ -11,6 +11,7 @@ namespace App\Http\Controllers\Cognitive;
 use App\Http\Controllers\Controller;
 use MicrosoftAzure\Storage\Common\ServicesBuilder;
 use MicrosoftAzure\Storage\Common\ServiceException;
+use TesseractOCR;
 
 require_once 'HTTP/Request2.php';
 
@@ -114,6 +115,13 @@ class CognitiveAPI extends Controller
         }
     }
 
+    public function getOCRText()
+    {
+        $imgUrl = CognitiveAPI::getImageUrl();
+        $translateText = (new TesseractOCR($imgUrl))->lang('eng')->run();
+        echo json_encode(array('description' => $translateText));
+    }
+
     public function getImageUrl()
     {
         $connectionString = 'DefaultEndpointsProtocol=https;AccountName=' . env('ACCOUNT_NAME') . ';AccountKey=' . env('ACCOUNT_KEY');
@@ -126,7 +134,7 @@ class CognitiveAPI extends Controller
             $blob_list = $blobRestProxy->listBlobs('/images');
             $blobs = $blob_list->getBlobs();
             ksort($blobs);
-            return $blobs[count($blobs) - 2]->getUrl();
+            return $blobs[count($blobs) - 1]->getUrl();
         } catch (ServiceException $e) {
             // Handle exception based on error codes and messages.
             // Error codes and messages are here:

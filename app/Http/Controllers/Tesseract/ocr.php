@@ -9,12 +9,15 @@
 
 namespace App\Http\Controllers\Tesseract;
 
+use App\Http\Controllers\Cognitive\CognitiveAPI;
 use TesseractOCR;
 
 class ocr
 {
     public function index()
     {
-        echo (new TesseractOCR('/home/secret/Github/Cognitive-API/app/Http/Controllers/Tesseract/text.png'))->lang('kor')->run();
+        $imgUrl = CognitiveAPI::getImageUrl();
+        $translateText = (new TesseractOCR($imgUrl))->lang('kor')->run();
+        echo json_encode(array('description' => $translateText));
     }
 }
