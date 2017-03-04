@@ -29,7 +29,7 @@ class CognitiveAPI extends Controller
         $request->setHeader($headers);
         $parameters = array(
             // Request parameters
-            'language' => 'ko',
+            'language' => 'en',
             'detectOrientation ' => 'true',
         );
         $url->setQueryVariables($parameters);
