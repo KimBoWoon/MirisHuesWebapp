@@ -1,0 +1,9 @@
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\bin\Microsoft.PythonTools.WebRole.dll
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\bin\AzureSetup.cfg
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\bin\Microsoft.PythonTools.AzureSetup.exe
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\bin\Microsoft.PythonTools.AzureSetup.exe.config
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\bin\wfastcgi.py
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\obj\Release\deployment-updated-pyvenv.cfg
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\ptvs_virtualenv_proxy.py
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\obj\Release\web.config
+D:\GitHub\MirisHuesWebapp\MirisHuesWebapp\obj\Release\web.debug.config
