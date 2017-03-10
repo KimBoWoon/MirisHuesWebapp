@@ -15,4 +15,8 @@ def home():
 @app.route('/about')
 def about():
     """Render the about page"""
-    return 'Hello World!'
+    return render_template(
+        'index.html',
+        title='About Page',
+        year=datetime.now().year,
+    )
