@@ -16,8 +16,3 @@ def home():
 def about():
     """Render the about page"""
     return 'Hello World!'
-
-@app.route('/user')
-def user():
-    """Render the user page"""
-    return 'Hello World!'
