@@ -4,7 +4,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>d70f2f8e-b829-471c-ab01-623367b66d95</ProjectGuid>
+    <ProjectGuid>06c0b673-26cb-42f4-be59-1458b81ffc1a</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <StartupFile>runserver.py</StartupFile>
@@ -18,9 +18,6 @@
     <PythonWsgiHandler>$(MSBuildProjectName).app</PythonWsgiHandler>
     <Name>MirisHuesWebapp</Name>
     <RootNamespace>MirisHuesWebapp</RootNamespace>
-    <InterpreterId>{33a9dca3-c477-4cc1-8d58-8e7721d4a4f8}</InterpreterId>
-    <InterpreterVersion>3.4</InterpreterVersion>
-    <NameOfLastUsedPublishProfile>miris-webapp - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,7 +41,6 @@
     <Folder Include="MirisHuesWebapp\templates\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="miris-webapp - Web Deploy.pubxml" />
     <Content Include="requirements.txt" />
     <Content Include="MirisHuesWebapp\static\content\bootstrap.css" />
     <Content Include="MirisHuesWebapp\static\content\bootstrap.min.css" />
@@ -72,19 +68,6 @@
     <Content Include="MirisHuesWebapp\templates\contact.html" />
     <Content Include="MirisHuesWebapp\templates\index.html" />
     <Content Include="MirisHuesWebapp\templates\layout.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Interpreter Include="env\">
-      <Id>{33a9dca3-c477-4cc1-8d58-8e7721d4a4f8}</Id>
-      <BaseInterpreter>{9a7a9026-48c1-4688-9d5d-e5699d47d074}</BaseInterpreter>
-      <Version>3.4</Version>
-      <Description>env (Python 64-bit 3.4)</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <LibraryPath>Lib\</LibraryPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>Amd64</Architecture>
-    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 
