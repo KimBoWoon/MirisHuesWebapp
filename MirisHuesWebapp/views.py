@@ -11,3 +11,8 @@ def home():
         title='Home Page',
         year=datetime.now().year,
     )
+
+@app.route('/about')
+def about():
+    """Render the about page"""
+    return 'Hello World!'
