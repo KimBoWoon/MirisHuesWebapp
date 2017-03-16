@@ -5,35 +5,48 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 Flask	MirisHuesWebapp/__init__.py	/^from flask import Flask$/;"	kind:namespace	line:1
-HOST	run.py	/^    HOST = environ.get('SERVER_HOST', 'localhost')$/;"	kind:variable	line:5
+HOST	app.py	/^    HOST = environ.get('SERVER_HOST', 'localhost')$/;"	kind:variable	line:5
 MirisHuesWebapp	MirisHuesWebapp/__init__.py	/^import MirisHuesWebapp.views$/;"	kind:namespace	line:4
-PORT	run.py	/^        PORT = 5555$/;"	kind:variable	line:9
-PORT	run.py	/^        PORT = int(environ.get('SERVER_PORT', '5555'))$/;"	kind:variable	line:7
+PORT	app.py	/^        PORT = 5555$/;"	kind:variable	line:9
+PORT	app.py	/^        PORT = int(environ.get('SERVER_PORT', '5555'))$/;"	kind:variable	line:7
 __init__.py	MirisHuesWebapp/__init__.py	1;"	kind:file	line:1
-about	MirisHuesWebapp/views.py	/^def about():$/;"	kind:function	line:16
+_key	MirisHuesWebapp/views.py	/^_key = '8ae1ba5adb144e69aa1016f66ff00b97'$/;"	kind:variable	line:63
+_maxNumRetries	MirisHuesWebapp/views.py	/^_maxNumRetries = 10$/;"	kind:variable	line:64
+_url	MirisHuesWebapp/views.py	/^_url = 'https:\/\/westus.api.cognitive.microsoft.com\/vision\/v1.0\/ocr'$/;"	kind:variable	line:62
+about	MirisHuesWebapp/views.py	/^def about():$/;"	kind:function	line:25
 activate_this	ptvs_virtualenv_proxy.py	/^activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')$/;"	kind:variable	line:93
 app	MirisHuesWebapp/__init__.py	/^app = Flask(__name__)$/;"	kind:variable	line:2
-app	MirisHuesWebapp/views.py	/^from MirisHuesWebapp import app$/;"	kind:namespace	line:3
-app	run.py	/^from MirisHuesWebapp import app$/;"	kind:namespace	line:2
-datetime	MirisHuesWebapp/views.py	/^from datetime import datetime$/;"	kind:namespace	line:1
+app	MirisHuesWebapp/views.py	/^from MirisHuesWebapp import app$/;"	kind:namespace	line:10
+app	app.py	/^from MirisHuesWebapp import app$/;"	kind:namespace	line:2
+app.py	app.py	1;"	kind:file	line:1
+cognitiveText	MirisHuesWebapp/views.py	/^def cognitiveText():$/;"	kind:function	line:35
+datetime	MirisHuesWebapp/views.py	/^from datetime import datetime$/;"	kind:namespace	line:5
 datetime	ptvs_virtualenv_proxy.py	/^import datetime$/;"	kind:namespace	line:15
-environ	run.py	/^from os import environ$/;"	kind:namespace	line:1
+environ	app.py	/^from os import environ$/;"	kind:namespace	line:1
+error	MirisHuesWebapp/views.py	/^import urllib.error$/;"	kind:namespace	line:2
 execfile	ptvs_virtualenv_proxy.py	/^    def execfile(path, global_dict):$/;"	kind:function	line:24
 get_venv_handler	ptvs_virtualenv_proxy.py	/^def get_venv_handler():$/;"	kind:function	line:106
 get_virtualenv_handler	ptvs_virtualenv_proxy.py	/^def get_virtualenv_handler():$/;"	kind:function	line:97
 get_wsgi_handler	ptvs_virtualenv_proxy.py	/^def get_wsgi_handler(handler_name):$/;"	kind:function	line:57
-home	MirisHuesWebapp/views.py	/^def home():$/;"	kind:function	line:7
+home	MirisHuesWebapp/views.py	/^def home():$/;"	kind:function	line:15
 log	ptvs_virtualenv_proxy.py	/^def log(txt):$/;"	kind:function	line:34
 os	ptvs_virtualenv_proxy.py	/^import os$/;"	kind:namespace	line:16
+parse	MirisHuesWebapp/views.py	/^import urllib.parse$/;"	kind:namespace	line:3
+processRequest	MirisHuesWebapp/views.py	/^def processRequest(json, data, headers, params):$/;"	kind:function	line:67
 ptvs_virtualenv_proxy.py	ptvs_virtualenv_proxy.py	1;"	kind:file	line:1
 ptvsd	ptvs_virtualenv_proxy.py	/^        import ptvsd$/;"	kind:namespace	line:48
 ptvsd_secret	ptvs_virtualenv_proxy.py	/^ptvsd_secret = os.getenv('WSGI_PTVSD_SECRET')$/;"	kind:variable	line:44
-render_template	MirisHuesWebapp/views.py	/^from flask import render_template$/;"	kind:namespace	line:2
-run.py	run.py	1;"	kind:file	line:1
+render_template	MirisHuesWebapp/views.py	/^from flask import render_template$/;"	kind:namespace	line:8
+request	MirisHuesWebapp/views.py	/^import urllib.request$/;"	kind:namespace	line:4
+requests	MirisHuesWebapp/views.py	/^import requests$/;"	kind:namespace	line:7
 site	ptvs_virtualenv_proxy.py	/^    import site$/;"	kind:namespace	line:108
 sys	ptvs_virtualenv_proxy.py	/^import sys$/;"	kind:namespace	line:17
+time	MirisHuesWebapp/views.py	/^import time$/;"	kind:namespace	line:1
 to_str	ptvs_virtualenv_proxy.py	/^    def to_str(value):$/;"	kind:function	line:21
 to_str	ptvs_virtualenv_proxy.py	/^    def to_str(value):$/;"	kind:function	line:31
 traceback	ptvs_virtualenv_proxy.py	/^import traceback$/;"	kind:namespace	line:18
+urllib	MirisHuesWebapp/views.py	/^import urllib.error$/;"	kind:namespace	line:2
+urllib	MirisHuesWebapp/views.py	/^import urllib.parse$/;"	kind:namespace	line:3
+urllib	MirisHuesWebapp/views.py	/^import urllib.request$/;"	kind:namespace	line:4
 views	MirisHuesWebapp/__init__.py	/^import MirisHuesWebapp.views$/;"	kind:namespace	line:4
 views.py	MirisHuesWebapp/views.py	1;"	kind:file	line:1
