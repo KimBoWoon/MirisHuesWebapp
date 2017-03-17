@@ -5,6 +5,7 @@ import requests
 from flask import render_template
 from datetime import datetime
 from MirisHuesWebapp import app
+from azure.storage.blob import BlockBlobService
 
 cognitiveUrl = 'https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr'
 cognitiveKey = '8ae1ba5adb144e69aa1016f66ff00b97'
@@ -48,7 +49,7 @@ def cognitiveText():
 
     data = None
 
-    urlImage = 'http://www.antigrain.com/research/font_rasterization/msword_text_rendering.png'
+    urlImage = azureStorageList()
     imageUrlJson = {'url': urlImage}
 
     try:
@@ -100,3 +101,15 @@ def processRequest(json, data, headers, params):
         break
 
     return result
+
+
+def azureStorageList():
+    urlPath = None
+    block_blob_service = BlockBlobService(account_name='mirisimagestorage',
+                                          account_key='2F2hCPXsmhGBFUUBFoFfTF1mlavK3YYdkX+tlAauYv6mly621fXYQSLckqEZfHR+XVBBI3PgV0spOed+JLrlKg==')
+
+    generator = block_blob_service.list_blobs('images')
+    for blob in generator:
+        urlPath = block_blob_service.make_blob_url('images', blob.name)
+
+    return urlPath
