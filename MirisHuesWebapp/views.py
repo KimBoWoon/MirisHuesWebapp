@@ -2,13 +2,14 @@ import time
 import urllib.error, urllib.parse, urllib.request
 import json
 import requests
+import config
 from flask import render_template
 from datetime import datetime
 from MirisHuesWebapp import app
 from azure.storage.blob import BlockBlobService
 
-cognitiveUrl = 'https://westus.api.cognitive.microsoft.com/vision/v1.0/ocr'
-cognitiveKey = '8ae1ba5adb144e69aa1016f66ff00b97'
+cognitiveUrl = config.COGNITIVE_URL
+cognitiveKey = config.COGNITIVE_KEY
 maxNumRetries = 10
 
 
@@ -105,8 +106,8 @@ def processRequest(json, data, headers, params):
 
 def azureStorageList():
     urlPath = None
-    block_blob_service = BlockBlobService(account_name='mirisimagestorage',
-                                          account_key='2F2hCPXsmhGBFUUBFoFfTF1mlavK3YYdkX+tlAauYv6mly621fXYQSLckqEZfHR+XVBBI3PgV0spOed+JLrlKg==')
+    block_blob_service = BlockBlobService(account_name=config.AZURE_STORAGE_NAME,
+                                          account_key=config.AZURE_STORAGE_KEY)
 
     generator = block_blob_service.list_blobs('images')
     for blob in generator:
