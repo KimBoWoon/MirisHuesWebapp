@@ -104,13 +104,13 @@ def processRequest(json, data, headers, params):
     return result
 
 
-def azureStorageList():
-    urlPath = None
-    block_blob_service = BlockBlobService(account_name=config.AZURE_STORAGE_NAME,
-                                          account_key=config.AZURE_STORAGE_KEY)
+# def azureStorageList():
+#     urlPath = None
+#     block_blob_service = BlockBlobService(account_name=config.AZURE_STORAGE_NAME,
+#                                           account_key=config.AZURE_STORAGE_KEY)
 
-    generator = block_blob_service.list_blobs('images')
-    for blob in generator:
-        urlPath = block_blob_service.make_blob_url('images', blob.name)
+#     generator = block_blob_service.list_blobs('images')
+#     for blob in generator:
+#         urlPath = block_blob_service.make_blob_url('images', blob.name)
 
-    return urlPath
+#     return urlPath
