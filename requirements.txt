@@ -1,3 +1,4 @@
 azure
 flask
 azure-storage
+cffi
