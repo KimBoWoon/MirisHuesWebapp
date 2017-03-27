@@ -1,11 +1,8 @@
-from os import environ
-from MirisHuesWebapp import app
-
-from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
-from tornado.web import RequestHandler, Application
 from tornado.stack_context import NullContext
+from tornado.wsgi import WSGIContainer
+from MirisHuesWebapp import app
 
 if __name__ == '__main__':
     # HOST = environ.get('SERVER_HOST', 'localhost')
@@ -17,6 +14,6 @@ if __name__ == '__main__':
 
     http_server = HTTPServer(WSGIContainer(app))
     with NullContext():
-        http_server.bind(5555, address="127.0.0.1")
+        http_server.bind(port=5555, address="127.0.0.1")
         http_server.start(6)
     IOLoop.instance().start()
