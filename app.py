@@ -17,6 +17,6 @@ if __name__ == '__main__':
 
     http_server = HTTPServer(WSGIContainer(app))
     with NullContext():
-        http_server.bind(5555)
+        http_server.bind(5555, address="127.0.0.1")
         http_server.start(6)
     IOLoop.instance().start()
