@@ -7,7 +7,13 @@ from os import environ
 from gevent.wsgi import WSGIServer
 from MirisHuesWebapp import app
 
+wsgi_app = app.wsgi_app
+
 if __name__ == '__main__':
+    from wsgiref.simple_server import make_server
+
+    httpd = make_server('localhost', 5555, wsgi_app)
+    httpd.serve_forever()
     # HOST = environ.get('SERVER_HOST', 'localhost')
     # try:
     #     PORT = int(environ.get('SERVER_PORT', '5555'))
@@ -15,8 +21,8 @@ if __name__ == '__main__':
     #     PORT = 5555
     # app.run(HOST, PORT, debug=True)
 
-    http_server = HTTPServer(WSGIContainer(app))
-    with NullContext():
-        http_server.bind(port=5555, address="127.0.0.1")
-        http_server.start(6)
-    IOLoop.instance().start()
+    # http_server = HTTPServer(WSGIContainer(app))
+    # with NullContext():
+    #     http_server.bind(port=5555, address="127.0.0.1")
+    #     http_server.start(6)
+    # IOLoop.instance().start()
