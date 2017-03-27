@@ -8,7 +8,7 @@ from os import environ
 wsgi_app = app.wsgi_app
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=5555)
+    app.run()
     # HOST = environ.get('SERVER_HOST', 'localhost')
     # try:
     #     PORT = int(environ.get('SERVER_PORT', '5555'))
