@@ -4,15 +4,6 @@ from tornado.stack_context import NullContext
 from tornado.wsgi import WSGIContainer
 from MirisHuesWebapp import app
 
-
-def wsgi_app(environ, start_response):
-    http_server = HTTPServer(WSGIContainer(app))
-    with NullContext():
-        http_server.bind(port=5555, address="127.0.0.1")
-        http_server.start(6)
-    IOLoop.instance().start()
-
-
 if __name__ == '__main__':
     # HOST = environ.get('SERVER_HOST', 'localhost')
     # try:
