@@ -1,3 +1,3 @@
 azure
 flask
-gevent
+tornado
