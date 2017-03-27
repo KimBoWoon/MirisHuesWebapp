@@ -1,3 +1,4 @@
+azure-storage
 azure
 flask
 tornado

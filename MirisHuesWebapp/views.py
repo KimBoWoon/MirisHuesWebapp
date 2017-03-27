@@ -39,7 +39,7 @@ def cognitiveText():
     headers = {
         # Request headers
         'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': '8ae1ba5adb144e69aa1016f66ff00b97',
+        'Ocp-Apim-Subscription-Key': config.COGNITIVE_KEY,
     }
 
     params = urllib.parse.urlencode({
