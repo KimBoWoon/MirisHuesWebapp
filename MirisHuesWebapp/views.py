@@ -106,8 +106,8 @@ def processRequest(json, data, headers, params):
 
 def azureStorageList():
     urlPath = None
-    block_blob_service = BlockBlobService(account_name=config.AZURE_STORAGE_NAME,
-                                          account_key=config.AZURE_STORAGE_KEY)
+    block_blob_service = BlobService(account_name=config.AZURE_STORAGE_NAME,
+                                     account_key=config.AZURE_STORAGE_KEY)
 
     generator = block_blob_service.list_blobs('images')
     for blob in generator:
