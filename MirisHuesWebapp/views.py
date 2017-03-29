@@ -6,7 +6,7 @@ import config
 from flask import render_template
 from datetime import datetime
 from MirisHuesWebapp import app
-from azure.storage.blob import BlockBlobService
+from azure.storage.blob import BlobService
 
 cognitiveUrl = config.COGNITIVE_URL
 cognitiveKey = config.COGNITIVE_KEY
